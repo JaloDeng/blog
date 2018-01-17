@@ -34,6 +34,9 @@ dependencies {
     compile('mysql:mysql-connector-java')
 
 	compile('org.springframework.boot:spring-boot-starter-web')
+	
+	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
 
+    compile('top.jalo.commons:view:1.0.0-SNAPSHOT')
 	compile('top.jalo.commons:webservice:1.0.0-SNAPSHOT')
 }

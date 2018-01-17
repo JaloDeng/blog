@@ -1,8 +1,10 @@
 package top.jalo.demo.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import top.jalo.commons.webservice.controller.JpaGenericController;
 import top.jalo.commons.webservice.service.JpaGenericService;
@@ -27,4 +29,8 @@ public class BlogController extends JpaGenericController<Blog, Long> {
 		return blogService;
 	}
 
+	@GetMapping("/test")
+	public ModelAndView test() {
+		return new ModelAndView("view/test");
+	}
 }
