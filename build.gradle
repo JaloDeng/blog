@@ -30,7 +30,9 @@ repositories {
 }
 
 
-dependencies {	
+dependencies {
+    compile('mysql:mysql-connector-java')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 
 	compile('top.jalo.commons:webservice:1.0.0-SNAPSHOT')
