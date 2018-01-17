@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import top.jalo.demo.blog.entity.BlogEntity;
 
 /**
+ * Repository : blog
  *
  * @Author JALO
  *
