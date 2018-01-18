@@ -3,6 +3,7 @@ package top.jalo.demo.blog.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import top.jalo.commons.util.annotation.View;
 import top.jalo.commons.webservice.controller.JpaGenericController;
 import top.jalo.demo.blog.entity.BlogEntity;
 import top.jalo.demo.blog.model.Blog;
@@ -15,6 +16,7 @@ import top.jalo.demo.blog.model.Blog;
  */
 @RestController
 @RequestMapping("/blog")
+@View("/view/blog")
 public class BlogController extends JpaGenericController<BlogEntity, Blog, Long, Long> {
 	
 }
