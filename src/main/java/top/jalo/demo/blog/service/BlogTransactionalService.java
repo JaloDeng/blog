@@ -20,9 +20,9 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	protected BlogTransactionalService() {}
 	
 	@Override
-	public ModelAndView findAll(Integer page, Integer size, String sorts, Model model, String viewName, Object... args)
+	public ModelAndView findAll(Integer page, Integer size, String sorts, String viewName, Object... args)
 			throws Exception {
-		return super.findAll(page, size, sorts, model, viewName, args);
+		return super.findAll(page, size, sorts, viewName, args);
 	}
 	
 	@Override

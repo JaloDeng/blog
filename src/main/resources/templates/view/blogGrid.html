@@ -18,7 +18,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr th:each="user : ${result.data.data}">
+            <tr th:each="user : ${result.items}">
               <th scope="row" th:text="${user.id}"></th>
               <td th:text="${user.title}"></td>
               <td th:text="${user.createTime}"></td>
