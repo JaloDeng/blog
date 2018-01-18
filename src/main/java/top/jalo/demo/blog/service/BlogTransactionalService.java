@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
+import top.jalo.commons.webservice.model.CollectionResult;
 import top.jalo.commons.webservice.model.Result;
 import top.jalo.commons.webservice.service.JpaGenericService;
 
@@ -27,18 +28,18 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	
 	@Override
 	@Transactional(readOnly = true)
-	public Result<?> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
+	public CollectionResult<?> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
 		return super.findAll(page, size, sorts, args);
 	}
 	
 	@Override
-	public ModelAndView findById(MID modelId, Model model, String viewName, Object... args) throws Exception {
-		return super.findById(modelId, model, viewName, args);
+	public ModelAndView findById(MID modelId, String viewName, Object... args) throws Exception {
+		return super.findById(modelId, viewName, args);
 	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public M findById(MID modelId, Object... args) throws Exception {
+	public Result<?> findById(MID modelId, Object... args) throws Exception {
 		return super.findById(modelId, args);
 	}
 	
