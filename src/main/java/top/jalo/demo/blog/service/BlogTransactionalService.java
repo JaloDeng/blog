@@ -1,12 +1,12 @@
 package top.jalo.demo.blog.service;
 
 import java.io.Serializable;
-import java.util.Map;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
+import top.jalo.commons.webservice.model.Result;
 import top.jalo.commons.webservice.service.JpaGenericService;
 
 /**
@@ -27,7 +27,7 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	
 	@Override
 	@Transactional(readOnly = true)
-	public Map<String, Object> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
+	public Result<?> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
 		return super.findAll(page, size, sorts, args);
 	}
 	
