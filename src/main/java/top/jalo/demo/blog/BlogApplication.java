@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@SpringBootApplication
 @EnableJpaAuditing
 @EnableTransactionManagement
+@SpringBootApplication(scanBasePackages = {"top.jalo.commons", "top.jalo.demo"})
 public class BlogApplication {
 
 	public static void main(String[] args) {
