@@ -3,7 +3,6 @@ package top.jalo.demo.blog.service;
 import java.io.Serializable;
 
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 import top.jalo.commons.webservice.model.CollectionResult;
@@ -21,71 +20,71 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	protected BlogTransactionalService() {}
 	
 	@Override
-	public ModelAndView findAll(Integer page, Integer size, String sorts, String viewName, Object... args)
+	public ModelAndView findAllAndView(Integer page, Integer size, String sorts, String viewName, Object... args)
 			throws Exception {
-		return super.findAll(page, size, sorts, viewName, args);
+		return super.findAllAndView(page, size, sorts, viewName, args);
 	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public CollectionResult<?> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
+	public CollectionResult<M> findAll(Integer page, Integer size, String sorts, Object... args) throws Exception {
 		return super.findAll(page, size, sorts, args);
 	}
 	
 	@Override
-	public ModelAndView findById(MID modelId, String viewName, Object... args) throws Exception {
-		return super.findById(modelId, viewName, args);
+	public ModelAndView findByIdAndView(MID modelId, String viewName, Object... args) throws Exception {
+		return super.findByIdAndView(modelId, viewName, args);
 	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public Result<?> findById(MID modelId, Object... args) throws Exception {
+	public Result<M> findById(MID modelId, Object... args) throws Exception {
 		return super.findById(modelId, args);
 	}
 	
 	@Override
-	public ModelAndView create(M m, Model model, String viewName, Object... args) throws Exception {
-		return super.create(m, model, viewName, args);
+	public ModelAndView createAndView(M model, String viewName, Object... args) throws Exception {
+		return super.createAndView(model, viewName, args);
 	}
 	
 	@Override
 	@Transactional(rollbackFor = Throwable.class)
-	public M create(M model, Object... args) throws Exception {
+	public Result<M> create(M model, Object... args) throws Exception {
 		return super.create(model, args);
 	}
 	
 	@Override
-	public ModelAndView fullUpdateById(MID modelId, M m, Model model, String viewName, Object... args)
+	public ModelAndView fullUpdateByIdAndView(MID modelId, M model, String viewName, Object... args)
 			throws Exception {
-		return super.fullUpdateById(modelId, m, model, viewName, args);
+		return super.fullUpdateByIdAndView(modelId, model, viewName, args);
 	}
 	
 	@Override
 	@Transactional(rollbackFor = Throwable.class)
-	public M fullUpdateById(MID modelId, M model, Object... args) throws Exception {
+	public Result<M> fullUpdateById(MID modelId, M model, Object... args) throws Exception {
 		return super.fullUpdateById(modelId, model, args);
 	}
 	
 	@Override
-	public ModelAndView partialUpdateById(MID modelId, M m, Model model, String viewName, Object... args)
+	public ModelAndView partialUpdateByIdAndView(MID modelId, M model, String viewName, Object... args)
 			throws Exception {
-		return super.partialUpdateById(modelId, m, model, viewName, args);
+		return super.partialUpdateByIdAndView(modelId, model, viewName, args);
 	}
 	
 	@Override
 	@Transactional(rollbackFor = Throwable.class)
-	public M partialUpdateById(MID modelId, M model, Object... args) throws Exception {
+	public Result<M> partialUpdateById(MID modelId, M model, Object... args) throws Exception {
 		return super.partialUpdateById(modelId, model, args);
 	}
 	
 	@Override
-	public ModelAndView deleteById(MID modelId, Model model, String viewName, Object... args) throws Exception {
-		return super.deleteById(modelId, model, viewName, args);
+	public ModelAndView deleteByIdAndView(MID modelId, String viewName, Object... args) throws Exception {
+		return super.deleteByIdAndView(modelId, viewName, args);
 	}
 	
 	@Override
 	@Transactional(rollbackFor = Throwable.class)
-	public M deleteById(MID modelId, Object... args) throws Exception {
+	public Result<M> deleteById(MID modelId, Object... args) throws Exception {
 		return super.deleteById(modelId, args);
 	}
 }
