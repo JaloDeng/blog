@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import top.jalo.commons.webservice.model.CollectionResult;
 import top.jalo.commons.webservice.model.Result;
-import top.jalo.commons.webservice.service.JpaGenericService;
+import top.jalo.commons.webservice.service.JpaGenericMVService;
 
 /**
  * Service : abstract service with transaction.
@@ -15,14 +15,14 @@ import top.jalo.commons.webservice.service.JpaGenericService;
  * @Author JALO
  *
  */
-public abstract class BlogTransactionalService<E, M, EID extends Serializable, MID extends Serializable> extends JpaGenericService<E, M, EID, MID> {
+public abstract class BlogTransactionalService<E, M, EID extends Serializable, MID extends Serializable> extends JpaGenericMVService<E, M, EID, MID> {
 
 	protected BlogTransactionalService() {}
 	
 	@Override
-	public ModelAndView findAllAndView(Integer page, Integer size, String sorts, String viewName, Object... args)
+	public ModelAndView findAll(String viewName, Integer page, Integer size, String sorts, Object... args)
 			throws Exception {
-		return super.findAllAndView(page, size, sorts, viewName, args);
+		return super.findAll(viewName, page, size, sorts, args);
 	}
 	
 	@Override
@@ -32,8 +32,8 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	}
 	
 	@Override
-	public ModelAndView findByIdAndView(MID modelId, String viewName, Object... args) throws Exception {
-		return super.findByIdAndView(modelId, viewName, args);
+	public ModelAndView findById(String viewName, MID modelId, Object... args) throws Exception {
+		return super.findById(viewName, modelId, args);
 	}
 	
 	@Override
@@ -43,8 +43,8 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	}
 	
 	@Override
-	public ModelAndView createAndView(M model, String viewName, Object... args) throws Exception {
-		return super.createAndView(model, viewName, args);
+	public ModelAndView create(String viewName, M model, Object... args) throws Exception {
+		return super.create(viewName, model, args);
 	}
 	
 	@Override
@@ -54,9 +54,9 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	}
 	
 	@Override
-	public ModelAndView fullUpdateByIdAndView(MID modelId, M model, String viewName, Object... args)
+	public ModelAndView fullUpdateById(String viewName, MID modelId, M model, Object... args)
 			throws Exception {
-		return super.fullUpdateByIdAndView(modelId, model, viewName, args);
+		return super.fullUpdateById(viewName, modelId, model, args);
 	}
 	
 	@Override
@@ -66,9 +66,9 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	}
 	
 	@Override
-	public ModelAndView partialUpdateByIdAndView(MID modelId, M model, String viewName, Object... args)
+	public ModelAndView partialUpdateById(String viewName, MID modelId, M model, Object... args)
 			throws Exception {
-		return super.partialUpdateByIdAndView(modelId, model, viewName, args);
+		return super.partialUpdateById(viewName, modelId, model, args);
 	}
 	
 	@Override
@@ -78,8 +78,8 @@ public abstract class BlogTransactionalService<E, M, EID extends Serializable, M
 	}
 	
 	@Override
-	public ModelAndView deleteByIdAndView(MID modelId, String viewName, Object... args) throws Exception {
-		return super.deleteByIdAndView(modelId, viewName, args);
+	public ModelAndView deleteById(String viewName, MID modelId, Object... args) throws Exception {
+		return super.deleteById(viewName, modelId, args);
 	}
 	
 	@Override
