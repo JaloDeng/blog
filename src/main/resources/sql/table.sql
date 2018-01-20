@@ -14,7 +14,7 @@ CREATE TABLE `j_blog` (
   `update_user_id` bigint(20) DEFAULT NULL COMMENT '最后更新用户ID',
   `update_time` datetime DEFAULT NULL COMMENT '最后更新时间',
   PRIMARY KEY (`id`),
-  KEY `j_blog_title_idx` (`title`) USING BTREE
+  UNIQUE KEY `j_blog_title_unique` (`title`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------

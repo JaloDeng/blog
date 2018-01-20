@@ -34,7 +34,7 @@ public class BlogEntity {
 	@Column(name = "id", length = 20, nullable = false)
 	private Long id;
 	
-	@Column(name = "title", length = 100, nullable = false)
+	@Column(name = "title", length = 100, nullable = false, unique = true)
 	private String title;
 	
 	@Column(name = "summary", length = 255, nullable = false)
