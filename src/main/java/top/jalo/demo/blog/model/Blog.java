@@ -2,6 +2,8 @@ package top.jalo.demo.blog.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * Model : blog
  *
@@ -82,6 +84,7 @@ public class Blog {
 		this.updateUserId = updateUserId;
 	}
 
+	@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
 	public Date getUpdateTime() {
 		return updateTime;
 	}
